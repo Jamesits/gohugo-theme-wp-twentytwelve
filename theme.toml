@@ -1,0 +1,12 @@
+name = "Twenty Twelve"
+license = "GPL"
+licenselink = "https://github.com/Jamesits/gohugo-theme-wp-twentytwelve/blob/master/LICENSE"
+description = "The Twenty Twelve theme for WordPress ported to Hugo."
+homepage = "https://github.com/Jamesits/gohugo-theme-wp-twentytwelve"
+tags = ["responsive", "blog", "Multilingual"]
+features = ["posts", "shortcodes", "related content", "comments"]
+min_version = "0.64.0"
+
+[author]
+  name = "James Swineson"
+  homepage = "https://swineson.me/"
