@@ -1,6 +1,60 @@
 - id: "This is somewhat embarrassing, isn't it?"
   translation: "这有点尴尬，不是吗？"
 
+- id: "It seems we can't find what you're looking for. Perhaps searching can help."
+  translation: "It seems we can't find what you're looking for. Perhaps searching can help."
+
+- id: "Proudly powered by WordPress"
+  translation: "自豪地采用WordPress"
+
+- id: "https://wordpress.org/"
+  translation: "https://cn.wordpress.org/"
+
+- id: "WordPress.org"
+  translation: "WordPress.org"
+
+- id: "Semantic Personal Publishing Platform"
+  translation: "优雅的个人发布平台"
+
+- id: "Menu"
+  translation: "菜单"
+
+- id: "Skip to content"
+  translation: "跳至正文"
+
+- id: "Nothing Found"
+  translation: "有点尴尬诶。"
+
+- id: "Apologies, but no results were found. Perhaps searching will help find a related post."
+  translation: "我们可能无法找到您需要的内容。或许搜索功能可以帮到您。"
+
+- id: "Search: "
+  translation: "搜索："
+
+- id: "Search"
+  translation: "搜索"
+
+- id: "Translations"
+  translation: "译文"
+
+- id: "Search for:"
+  translation: "Search for:"
+
+- id: "Meta"
+  translation: "功能"
+
+- id: "Log in"
+  translation: "登录"
+
+- id: "Entries feed"
+  translation: "条目feed"
+
+- id: "Comments feed"
+  translation: "评论feed"
+
+- id: "Author Archives: "
+  translation: "作者归档："
+
 - id: "Post navigation"
   translation: "文章导航"
 

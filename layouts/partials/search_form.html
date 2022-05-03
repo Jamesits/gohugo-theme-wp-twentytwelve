@@ -1,2 +1,7 @@
-Search box placeholder
-<input />
+<form role="search" method="get" id="searchform" class="searchform" action="#">
+    <div>
+        <label class="screen-reader-text" for="s">{{ i18n "Search: " | safeHTML }}</label>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="{{ i18n "Search" | safeHTML}}">
+    </div>
+<textarea name="" style="display: none;"></textarea></form>

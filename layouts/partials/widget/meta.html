@@ -3,9 +3,9 @@
 	<ul>
 		<li><a href="{{ "/wp-login.php" | absLangURL | safeHTMLAttr }}">{{ i18n "Log in" | safeHTML }}</a></li>
 		{{ with .OutputFormats.Get "rss" -}}
-			<li><a href="{{ .Permalink }}">{{ i18n "Entries feed" | safeHTML }}<h-hws hidden=""> </h-hws>feed</a></li>
+			<li><a href="{{ .Permalink }}">{{ i18n "Entries feed" | safeHTML }}</a></li>
 		{{ end -}}
-		{{/* <li><a href="{{ "/comments/feed/" | absLangURL | safeHTMLAttr }}">{{ i18n "Comments feed" | safeHTML }}<h-hws hidden=""> </h-hws>feed</a></li> */}}
+		{{/* <li><a href="{{ "/comments/feed/" | absLangURL | safeHTMLAttr }}">{{ i18n "Comments feed" | safeHTML }}</a></li> */}}
 		<li><a href="{{ i18n "https://wordpress.org/" | safeHTMLAttr }} ">WordPress.org</a></li>
 	</ul>
 </aside>
