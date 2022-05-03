@@ -1,5 +1,5 @@
-{{/* implements twentytwelve_content_nav( 'nav-above' ); */}}
-            <nav id="nav-above" class="navigation">
+{{/* implements twentytwelve_content_nav( 'nav-below' ); */}}
+            <nav id="nav-below" class="navigation">
 				<h3 class="assistive-text">{{i18n "Post navigation" | safeHTML }}</h3>
 				{{ if .Paginator.HasNext }}
 				<div class="nav-previous"><a href="{{ .Paginator.Next.URL | safeHTMLAttr }}"><span class="meta-nav">←</span> {{ i18n "Older posts" | safeHTML }}</a></div>

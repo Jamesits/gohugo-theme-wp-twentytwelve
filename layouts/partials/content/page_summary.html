@@ -1,23 +1,19 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/content-page.php */}}
-	<article id="post-0" class="{{ .Kind }}"> {{/* Note: WordPress post_class() does more than this */}}
+	<article class="{{ .Kind }}"> {{/* Note: WordPress post_class() does more than this */}}
 		<header class="entry-header">
 			{{/* <?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
 				<?php the_post_thumbnail(); ?>
 			<?php endif; ?> */}}
-			<h1 class="entry-title">{{ .Title | safeHTML }}</h1>
+			<h1 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title | safeHTML }}</a></h1>
 		</header>
 
 		<div class="entry-content">
-			{{ .Content }}
-			{{/* <?php
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ),
-					'after'  => '</div>',
-				)
-			);
-			?> */}}
+			<p>{{ .Summary }}</p> {{/* Note: WordPress renders summary as full HTML; Hugo renders summary as plain text. */}}
+			{{ if .Truncated }}
+			<p><a href="{{ .RelPermalink }}" class="more-link">Continue reading <span class="meta-nav">→</span></a></p>
+			{{ end }}
 		</div><!-- .entry-content -->
+
 		<footer class="entry-meta">
 			{{/* edit button */}}
 			This entry was posted

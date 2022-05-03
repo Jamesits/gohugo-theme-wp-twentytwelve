@@ -1,2 +1,11 @@
 - id: "This is somewhat embarrassing, isn't it?"
   translation: "这有点尴尬，不是吗？"
+
+- id: "Post navigation"
+  translation: "文章导航"
+
+- id: "Older posts"
+  translation: "早期文章"
+
+- id: "Newer posts"
+  translation: "较新文章"

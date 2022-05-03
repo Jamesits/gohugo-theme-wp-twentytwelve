@@ -57,3 +57,12 @@
 
 - id: "Author Archives: "
   translation: "Author Archives: "
+
+- id: "Post navigation"
+  translation: "Post navigation"
+
+- id: "Older posts"
+  translation: "Older posts"
+
+- id: "Newer posts"
+  translation: "Newer posts"
