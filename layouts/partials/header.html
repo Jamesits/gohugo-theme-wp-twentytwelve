@@ -13,7 +13,7 @@ Source: https://themes.svn.wordpress.org/twentytwelve/3.6/header.php
 <html class="ie ie8" lang="{{ .Site.Language.Lang }}">
 <![endif]-->
 <!--[if !(IE 7) & !(IE 8)]><!-->
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.LanguageDirection | default "ltr" }}">
 <!--<![endif]-->
 <head>
 <meta charset="{{ .Site.Params.CharacterSet }}" />
