@@ -1,0 +1,61 @@
+{{/*
+The Header template for our theme
+
+Displays all of the <head> section and everything up till <div id="main">
+
+Source: https://themes.svn.wordpress.org/twentytwelve/3.6/header.php
+*/}}
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="{{ .Site.Language.Lang }}">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="{{ .Site.Language.Lang }}">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="{{ .Site.Language.Lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="{{ .Site.Params.CharacterSet }}" />
+<meta name="viewport" content="width=device-width" />
+<title>{{ .Page.Title }}</title>
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<!-- <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>"> -->
+<!--[if lt IE 9]>
+<script src="{{ .Site.BaseURL }}/twentytwelve/js/html5.js?ver=3.7.0" type="text/javascript"></script>
+<![endif]-->
+{{ partial "header_inc.html" . }}
+{{ partial "header_override.html" . }}
+</head>
+
+{{/*
+https://themes.svn.wordpress.org/twentytwelve/3.6/functions.php
+Available body classes:
+- full-width
+- template-front-page has-post-thumbnail
+- template-front-page two-sidebars
+- custom-background-empty
+- custom-background-white
+- custom-font-enabled
+- single-author
+*/}}
+<body>
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+		<hgroup>
+			<h1 class="site-title"><a href="{{ .Site.Home.RelPermalink | safeHTMLAttr }}" title="{{ .Site.Title | safeHTMLAttr }}" rel="home">{{ .Site.Title | safeHTML }}</a></h1>
+			{{ if isset .Site.Params "subtitle" }}<h2 class="site-description">{{ .Site.Params.Subtitle | safeHTML }}</h2>{{ end }}
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle">{{ i18n "Menu" | safeHTML }}</button>
+			<a class="assistive-text" href="#content" title="{{ i18n "Skip to content" | safeHTMLAttr }}">{{ i18n "Skip to content" | safeHTML }}</a>
+			{{ partial "menu/primary.html" . }}
+		</nav><!-- #site-navigation -->
+
+		{{ if isset .Site.Params "headerimage" }}
+		<a href="{{ .Site.Home.RelPermalink | safeHTMLAttr }}"><img src="{{ .Site.Params.HeaderImage | safeHTMLAttr }}" class="header-image" width="{{ .Site.Params.HeaderWidth | safeHTMLAttr }}" height="{{ .Site.Params.HeaderHeight | safeHTMLAttr }}" alt="{{ .Site.Title | safeHTMLAttr }}" /></a>
+		{{ end }}
+	</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">

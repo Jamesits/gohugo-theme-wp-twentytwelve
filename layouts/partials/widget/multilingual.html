@@ -1,0 +1,12 @@
+<aside id="mslswidget-2" class="widget widget_mslswidget">
+	<h3 class="widget-title">{{ i18n "Translations" | safeHTML }}</h3>
+	{{ if .IsTranslated }}
+	<ul>
+		{{ range .Translations }}
+		<li>
+			<a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}</a>
+		</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</aside>

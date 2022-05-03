@@ -1,0 +1,28 @@
+{{/**
+ * The template for displaying the footer
+ *
+ * Contains footer content and the closing of the #main and #page div elements.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
+ */}}
+	</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+			{{ partial "credits.html" . }}
+			{{ if isset .Site.Params "privacypolicyurl" }}
+			<a href="{{ .Site.Params.PrivacyPolicyURL | safeHTMLAttr }}">Privacy Policy</a>
+			<span role="separator" aria-hidden="true"></span>
+			{{ end }}
+			<a href="{{ i18n "https://wordpress.org/" | safeHTMLAttr }}" class="imprint" title="{{ i18n "Semantic Personal Publishing Platform" | safeHTMLAttr }}">
+				{{ i18n "Proudly powered by WordPress" }}
+			</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+{{ partial "footer_inc.html" . }}
+{{ partial "footer_override.html" . }}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{{/*
+Equvalent to the following code:
+
+            <?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'menu_class'     => 'nav-menu',
+				)
+			);
+			?>
+*/}}
+<div class="menu-tabs-container">
+    <ul id="menu-tabs" class="nav-menu">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.primary }}
+        <li class="menu-item {{ if $currentPage.HasMenuCurrent "primary" . }}active{{ end }}">
+            <a href="{{ .URL | absLangURL | safeHTMLAttr }}">{{ .Pre }}{{ .Name }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>

@@ -1,0 +1,11 @@
+{{/* https://themes.svn.wordpress.org/twentytwelve/3.6/content-none.php */}}
+	<article id="post-0" class="post no-results not-found">
+		<header class="entry-header">
+			<h1 class="entry-title">{{ i18n "Nothing Found" | safeHTML }}</h1>
+		</header>
+
+		<div class="entry-content">
+			<p>{{ i18n "Apologies, but no results were found. Perhaps searching will help find a related post." | safeHTML }}</p>
+			{{ partial "search_form.html" . }}
+		</div><!-- .entry-content -->
+	</article><!-- #post-0 -->

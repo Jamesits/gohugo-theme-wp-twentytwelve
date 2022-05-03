@@ -1,0 +1,40 @@
+{{/* https://themes.svn.wordpress.org/twentytwelve/3.6/content-page.php */}}
+	<article id="post-0" class="{{ .Page.Kind }}"> {{/* Note: WordPress post_class() does more than this */}}
+    {{ with .Page }}
+		<header class="entry-header">
+			{{/* <?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
+				<?php the_post_thumbnail(); ?>
+			<?php endif; ?> */}}
+			<h1 class="entry-title">{{ .Title | safeHTML }}</h1>
+		</header>
+
+		<div class="entry-content">
+			{{ .Content }}
+			{{/* <?php
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ),
+					'after'  => '</div>',
+				)
+			);
+			?> */}}
+		</div><!-- .entry-content -->
+		<footer class="entry-meta">
+			{{/* edit button */}}
+			This entry was posted
+			{{ if .Page.Params.categories }} in
+				{{ range .Page.Params.categories }}
+				<a href="{{ "/tag/" | relLangURL }}{{ . | urlize | safeHTMLAttr }}" rel="category tag">{{ . | safeHTML }}</a>
+				{{ end }}
+			{{ end }}
+			on <a href="{{ .Page.Permalink | safeHTMLAttr }}" title="{{ .Page.Title | safeHTMLAttr }}" rel="bookmark">
+				<time class="entry-date" datetime="{{ .Date.Local.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ partial "l10n/post_date.html" . }}</time></a>{{ if .Page.Params.authors }} by
+					{{ range .Page.Params.authors }}
+					<span class="author vcard">
+						<a class="url fn n" href="{{ "/author/" | relLangURL }}{{ . | urlize | safeHTMLAttr }}" title="View all posts by {{ . | safeHTMLAttr }}" rel="author">{{ . | safeHTML }}</a>
+					</span>
+					{{ end }}
+			{{ end }}.
+		</footer><!-- .entry-meta -->
+    {{ end }}
+	</article><!-- #post -->

@@ -1,0 +1,16 @@
+{{/* meta */}}
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+{{/* RSS */}}
+{{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+{{/* translations */}}
+{{ if .IsTranslated }}{{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Site.Language.LanguageName | safeHTMLAttr }}" href="{{ .Permalink }}" title="{{ .Site.Language.LanguageName | safeHTMLAttr }}">
+{{ end }}{{ end }}
+{{/* stylesheets */}}
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C700italic%2C400%2C700&amp;subset=latin%2Clatin-ext&amp;display=fallback" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="{{ .Site.BaseURL }}/twentytwelve/style.css?ver=20190507" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-block-style-css" href="{{ .Site.BaseURL }}/twentytwelve/css/blocks.css?ver=20190406" type="text/css" media="all">
