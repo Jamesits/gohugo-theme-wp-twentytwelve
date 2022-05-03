@@ -1,6 +1,12 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/index.php (else segment) */}}
 {{ define "main" }}
+    {{/* {{- range (.Paginate .RegularPagesRecursive).Pages }} */}}
+    {{- range (.Paginate (where $.Site.RegularPages "Type" "in" site.Params.mainSections)).Pages }}
+      {{ partial "content/page_summary.html" . }}
+    {{ end }}
+
     {{/* no post placeholder */}}
+    {{/* Note that paginator is immutable within a page, so we don't need to specify its arguments again. */}}
     {{ if le (len .Paginator.Pages) 0 }}
         <article id="post-0" class="post no-results not-found">
           <header class="entry-header">
@@ -12,10 +18,6 @@
             {{ partial "search_form.html" . }}
           </div><!-- .entry-content -->
         </article><!-- #post-0 -->
-    {{ end }}
-
-    {{- range (.Paginate .RegularPagesRecursive).Pages }}
-      {{ partial "content/page_summary.html" . }}
     {{ end }}
 
     {{ partial "nav/below.html" . }}

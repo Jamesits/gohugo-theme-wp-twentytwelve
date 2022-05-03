@@ -1,14 +1,6 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/single.php */}}
 {{ define "main" }}
                 {{ partial "content/page.html" .Page }}
-
-				<nav class="nav-single">
-					<h3 class="assistive-text">{{ i18n "Post navigation" | safeHTML }}</h3>
-                    {{ if .Page.PrevInSection }}{{ with .Page.PrevInSection }}
-					<span class="nav-previous"><a href="{{ .Permalink | safeHTMLAttr }}" rel="prev"><span class="meta-nav">&larr;</span> {{ .Title | safeHTML }}</a></span>
-                    {{ end }}{{ end }}
-                    {{ if .Page.NextInSection }}{{ with .Page.NextInSection }}
-					<span class="nav-next"><a href="{{ .Permalink | safeHTMLAttr }}" rel="next"><span class="meta-nav">{{ .Title | safeHTML }} &rarr;</span></a></span>
-                    {{ end }}{{ end }}
-				</nav><!-- .nav-single -->
+                {{ partial "nav/single.html" . }}
+                {{ partial "comment.html" . }}
 {{ end }}

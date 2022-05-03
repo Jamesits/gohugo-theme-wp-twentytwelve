@@ -11,6 +11,8 @@ Subtitle = ""
 # HeaderWidth = ""
 # HeaderHeight = ""
 
+mainSections = ["posts"]
+
 [taxonomies]
 # https://www.netlify.com/blog/2018/07/24/hugo-tips-how-to-create-author-pages/
 _merge = "deep"
