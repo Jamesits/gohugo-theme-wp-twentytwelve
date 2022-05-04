@@ -1,0 +1,4 @@
+{{ if isset .Site.Params "privacypolicyurl" }}
+<a href="{{ .Site.Params.PrivacyPolicyURL | safeHTMLAttr }}">Privacy Policy</a>
+<span role="separator" aria-hidden="true"></span>
+{{ end }}
