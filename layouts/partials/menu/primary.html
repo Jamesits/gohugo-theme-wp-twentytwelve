@@ -14,8 +14,16 @@ Equvalent to the following code:
     <ul id="menu-tabs" class="nav-menu">
         {{ $currentPage := . }}
         {{ range .Site.Menus.primary }}
-        <li class="menu-item {{ if $currentPage.HasMenuCurrent "primary" . }}active{{ end }}">
+        {{/* not implemented classes: "current_page_ancestor current_page_parent"*/}}
+        <li class="menu-item{{ if $currentPage.HasMenuCurrent "primary" . }} current_page_item{{ end }}{{ if .HasChildren }} page_item_has_children{{ end }}">
             <a href="{{ .URL | absLangURL | safeHTMLAttr }}">{{ .Pre }}{{ .Name }}</a>
+            <ul class="children">
+                {{ range .Children }}
+                    <li class="page_item {{ if $currentPage.IsMenuCurrent "primary" . }}current_page_item{{ end }}">
+                        <a href="{{ .URL | absLangURL | safeHTMLAttr }}">{{ .Name }}</a>
+                    </li>
+                {{ end }}
+            </ul>
         </li>
         {{ end }}
     </ul>

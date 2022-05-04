@@ -5,11 +5,18 @@
         {{ range .Params.categories }}
         {{ $category_page := ($.Site.GetPage (printf "/%s" .))}}
         {{ $category_display_name := (index $category_page.Params "title" | default .) }}
-        <a href="{{ $category_page.RelPermalink | safeHTMLAttr }}" rel="category tag">{{ $category_display_name }}</a>
+        <a href="{{ $category_page.RelPermalink | safeHTMLAttr }}" rel="category">{{ $category_display_name | safeHTML }}</a>
         {{ end }}
     {{ end }}
-    on <a href="{{ .Permalink | safeHTMLAttr }}" title="{{ .Title | safeHTMLAttr }}" rel="bookmark">
-        <time class="entry-date" datetime="{{ .Date.Local.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ partial "l10n/post_date.html" . }}</time></a>{{ if .Params.authors }} by
+    {{ if .Params.tags }} and tagged
+        {{ range .Params.tags }}
+        {{ $tag_page := ($.Site.GetPage (printf "/%s" .))}}
+        {{ $tag_display_name := (index $tag_page.Params "title" | default .) }}
+        <a href="{{ $tag_page.RelPermalink | safeHTMLAttr }}" rel="tag">{{ $tag_display_name | safeHTML }}</a>
+        {{ end }}
+    {{ end }}
+    on <a href="{{ .Permalink | safeHTMLAttr }}" title="{{ partial "l10n/post_time.html" . | safeHTMLAttr }}" rel="bookmark">
+        <time class="entry-date" datetime="{{ .Date.Local.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ partial "l10n/post_date.html" . | safeHTML }}</time></a>{{ if .Params.authors }} by
     {{ range .Params.authors }}
     {{ $author_page := ($.Site.GetPage (printf "/%s" .)) }}
     {{ $author_display_name := (index $author_page.Params "name" | default . ) }}

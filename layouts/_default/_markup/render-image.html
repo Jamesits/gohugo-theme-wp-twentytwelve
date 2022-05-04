@@ -1,0 +1,11 @@
+{{/* https://sebastiandedeyne.com/captioned-images-with-markdown-render-hooks-in-hugo/ */}}
+<div class="wp-caption alignnone">
+{{ if .Title }}
+  <figure>
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    <figcaption class="wp-caption-text">{{ .Title }}</figcaption>
+  </figure>
+{{ else }}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+{{ end }}
+</div>
