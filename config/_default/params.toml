@@ -1,0 +1,13 @@
+_merge = "deep"
+
+CharacterSet = "UTF-8"
+
+Subtitle = ""
+
+# PrivacyPolicyURL = ""
+
+# HeaderImage = ""
+# HeaderWidth = ""
+# HeaderHeight = ""
+
+mainSections = ["posts"]

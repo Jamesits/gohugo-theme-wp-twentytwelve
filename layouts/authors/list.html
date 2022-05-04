@@ -1,0 +1,46 @@
+{{/* https://themes.svn.wordpress.org/twentytwelve/3.6/author.php */}}
+{{ define "main" }}
+			<header class="archive-header">
+				<h1 class="archive-title">
+                {{ i18n "Author Archives: " | safeHTML }}
+				<span class="vcard"><a class="url fn n" href="{{ .Page.Permalink | safeHTMLAttr }}" title="{{ .Params.name | safeHTMLAttr }}" rel="me">{{ .Params.name | safeHTML }}</a></span>
+				</h1>
+			</header><!-- .archive-header -->
+
+			{{ partial "nav/above.html" }}
+
+			{{ if isset .Params "description" }}
+			<div class="author-info">
+				<div class="author-avatar">
+					<?php
+					/**
+					 * Filters the author bio avatar size.
+					 *
+					 * @since Twenty Twelve 1.0
+					 *
+					 * @param int $size The height and width of the avatar in pixels.
+					 */
+					$author_bio_avatar_size = apply_filters( 'twentytwelve_author_bio_avatar_size', 68 );
+					echo get_avatar( get_the_author_meta( 'user_email' ), $author_bio_avatar_size );
+					?>
+				</div><!-- .author-avatar -->
+				<div class="author-description">
+					<h2>
+					<?php
+					/* translators: Author display name. */
+					printf( __( 'About %s', 'twentytwelve' ), get_the_author() );
+					?>
+					</h2>
+					<p><?php the_author_meta( 'description' ); ?></p>
+				</div><!-- .author-description	-->
+			</div><!-- .author-info -->
+			{{ end }}
+
+			{{ if le (len .Data.Pages) 0 }}
+			{{ partial "content/none.html" . }}
+			{{ else }}
+			{{ range .Data.Pages }}
+			{{ partial "content/page_summary.html" . }}
+			{{ end }}
+			{{ end }}
+{{ end }}
