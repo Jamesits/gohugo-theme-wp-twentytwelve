@@ -26,9 +26,13 @@
 </head>
 
 <body class="login no-js login-action-login wp-core-ui locale-en-us">
-Warning: Cannot modify header information – headers already sent by (output started at /var/www/html/wp-content/themes/wp-dental/functions.php:1) in /var/www/html/wp-login.php on line 530
+<br />
+<b>Warning</b>:  Use of undefined constant p - assumed 'p' (this will throw an Error in a future version of PHP) in <b>/var/www/html/wp-content/themes/twentytwelve/functions.php</b> on line <b>1919</b><br />
+<br />
+<b>Warning</b>: Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/themes/twentytwelve/functions.php:1) in <b>/var/www/html/wp-login.php</b> on line <b>114514</b><br />
+<br />
+<b>Warning</b>: Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/themes/twentytwelve/functions.php:1) in <b>/var/www/html/wp-includes/pluggable.php</b> on line <b>1299</b><br />
 
-Warning: Cannot modify header information – headers already sent by (output started at /var/www/html/wp-content/themes/wp-dental/functions.php:1) in /var/www/html/wp-includes/pluggable.php on line 1299
     <script type="text/javascript">
         document.body.className = document.body.className.replace('no-js', 'js');
     </script>
