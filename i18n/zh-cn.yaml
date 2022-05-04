@@ -63,3 +63,6 @@
 
 - id: "Newer posts"
   translation: "较新文章"
+
+- id: "%s Archives: %s"
+  translation: "%s Archives: %s"

@@ -72,3 +72,6 @@
 
 - id: "Newer posts"
   translation: "Newer posts"
+
+- id: "%s Archives: %s"
+  translation: "%s Archives: %s"

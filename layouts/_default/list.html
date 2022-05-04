@@ -7,12 +7,13 @@
 	{{ .Content }}
 
 	{{ if le (len .Paginator.Pages) 0 }}
-	{{ partial "content/none.html" . }}
+		{{ partial "content/none.html" . }}
 	{{ else }}
-	{{ range .Paginator.Pages }}
-		{{ partial "content/page_summary.html" . }}
-	{{ end }}
+		{{ range .Paginator.Pages }}
+			{{ partial "content/page_summary.html" . }}
+		{{ end }}
+
+		{{ partial "nav/below.html" . }}
 	{{ end }}
 
-	{{ partial "nav/below.html" . }}
 {{ end }}

@@ -1,44 +1,18 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/category.php */}}
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/tag.php */}}
 {{ define "main" }}
-	<section id="primary" class="site-content">
-		<div id="content" role="main">
+	<header class="archive-header">
+		<h1 class="archive-title">{{ printf (i18n "%s Archives: %s") (.Data.Singular | title) .Title }}</h1>
+		<div class="archive-meta">{{ .Content }}</div>
+	</header><!-- .archive-header -->
 
-		<?php if ( have_posts() ) : ?>
-			<header class="archive-header">
-				<h1 class="archive-title">
-				<?php
-				/* translators: %s: Tag title. */
-				printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-				?>
-				</h1>
+	{{ if le (len .Paginator.Pages) 0 }}
+		{{ partial "content/none.html" . }}
+	{{ else }}
+		{{ range .Paginator.Pages }}
+			{{ partial "content/page_summary.html" . }}
+		{{ end }}
 
-			<?php if ( tag_description() ) : // Show an optional tag description. ?>
-				<div class="archive-meta"><?php echo tag_description(); ?></div>
-			<?php endif; ?>
-			</header><!-- .archive-header -->
-
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the post format-specific template for the content. If you want
-				 * to use this in a child theme then include a file called content-___.php
-				 * (where ___ is the post format) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
-
-			endwhile;
-
-			twentytwelve_content_nav( 'nav-below' );
-			?>
-
-		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
-
-		</div><!-- #content -->
-	</section><!-- #primary -->
+		{{ partial "nav/below.html" . }}
+	{{ end }}
 {{ end }}
