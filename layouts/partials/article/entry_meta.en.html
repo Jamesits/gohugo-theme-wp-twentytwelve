@@ -1,0 +1,32 @@
+<footer class="entry-meta">
+    {{/* edit button */}}
+    This entry was posted
+    {{- if .Params.categories }} in
+        {{ range $i, $value := .Params.categories -}}
+            {{- if $i }}, {{ end -}}
+            {{- $category_page := ($.Site.GetPage (printf "/%s" $value)) -}}
+            {{- $category_display_name := (index $category_page.Params "title" | default $value) -}}
+            <a href="{{ $category_page.RelPermalink | safeHTMLAttr }}" rel="category">{{- $category_display_name | safeHTML -}}</a>
+        {{- end -}}
+    {{- end -}}
+    {{- if .Params.tags }} and tagged
+        {{ range $i, $value := .Params.tags -}}
+            {{- $tag_page := ($.Site.GetPage (printf "/%s" $value)) -}}
+            {{- $tag_display_name := (index $tag_page.Params "title" | default $value) -}}
+            {{- if $i }}, {{ end -}}
+            <a href="{{ $tag_page.RelPermalink | safeHTMLAttr }}" rel="tag">{{- $tag_display_name | safeHTML -}}</a>
+        {{- end -}}
+    {{- end }}
+    on
+    <a href="{{ .Permalink | safeHTMLAttr }}" title="{{ partial "l10n/post_time.html" . | safeHTMLAttr }}" rel="bookmark"><time class="entry-date" datetime="{{ .Date.Local.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{- partial "l10n/post_date.html" . | safeHTML -}}</time></a>
+    {{- if .Params.authors }} by
+        {{- range $i, $value := .Params.authors -}}
+            {{- if $i }}, {{ end -}}
+            {{- $author_page := ($.Site.GetPage (printf "/%s" $value)) -}}
+            {{- $author_display_name := (index $author_page.Params "name" | default $value ) -}}
+            <span class="author vcard">
+                <a class="url fn n" href="{{ $author_page.RelPermalink | safeHTMLAttr }}" title="View all posts by {{ $author_display_name | safeHTMLAttr }}" rel="author">{{- $author_display_name | safeHTML -}}</a>
+            </span>
+        {{- end -}}
+    {{- end -}}.
+</footer><!-- .entry-meta -->
