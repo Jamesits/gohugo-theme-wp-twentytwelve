@@ -1,5 +1,5 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/content-page.php */}}
-	<article id="post-0" class="{{ .Kind }}"> {{/* Note: WordPress post_class() does more than this */}}
+	<article class="{{ .Kind }}"> {{/* Note: WordPress post_class() does more than this */}}
 		<header class="entry-header">
 			{{/* <?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
 				<?php the_post_thumbnail(); ?>
@@ -18,5 +18,7 @@
 			);
 			?> */}}
 		</div><!-- .entry-content -->
+		{{ if ( ne .Type  "page" ) }}
 		{{ partial "article/entry_meta.html" . }}
+		{{ end }}
 	</article><!-- #post -->

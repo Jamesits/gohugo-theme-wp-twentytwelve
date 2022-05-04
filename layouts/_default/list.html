@@ -1,10 +1,12 @@
 {{/* https://themes.svn.wordpress.org/twentytwelve/3.6/archive.php */}}
 {{ define "main" }}
+	{{ if (gt (len .Content) 0)}}
+	{{ partial "content/page.html" . }}
+	{{ else }}
 	<header class="archive-header">
 		<h1 class="archive-title">{{ .Title | safeHTML }}</h1>
 	</header><!-- .archive-header -->
-
-	{{ .Content }}
+	{{ end }}
 
 	{{ if le (len .Paginator.Pages) 0 }}
 		{{ partial "content/none.html" . }}
