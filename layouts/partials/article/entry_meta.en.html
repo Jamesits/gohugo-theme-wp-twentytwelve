@@ -11,7 +11,7 @@
     {{- end -}}
     {{- if .Params.tags }} and tagged
         {{ range $i, $value := .Params.tags -}}
-            {{- $tag_page := ($.Site.GetPage "category" $value) -}}
+            {{- $tag_page := ($.Site.GetPage "tag" $value) -}}
             {{- $tag_display_name := (index $tag_page.Params "title" | default $value) -}}
             {{- if $i }}, {{ end -}}
             <a href="{{ $tag_page.RelPermalink | safeHTMLAttr }}" rel="tag">{{- $tag_display_name | safeHTML -}}</a>
@@ -22,7 +22,7 @@
     {{- if .Params.authors }} by
         {{- range $i, $value := .Params.authors -}}
             {{- if $i }}, {{ end -}}
-            {{- $author_page := ($.Site.GetPage "category" $value) -}}
+            {{- $author_page := ($.Site.GetPage "author" $value) -}}
             {{- $author_display_name := (index $author_page.Params "name" | default $value ) -}}
             <span class="author vcard">
                 <a class="url fn n" href="{{ $author_page.RelPermalink | safeHTMLAttr }}" title="View all posts by {{ $author_display_name | safeHTMLAttr }}" rel="author">{{- $author_display_name | safeHTML -}}</a>
