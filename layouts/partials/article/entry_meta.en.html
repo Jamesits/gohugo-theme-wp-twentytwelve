@@ -1,7 +1,7 @@
 <footer class="entry-meta">
     {{/* edit button */}}
-    This entry was posted
-    {{- if .Params.categories }} in
+    This entry was
+    {{- if .Params.categories }} posted in
         {{ range $i, $value := .Params.categories -}}
             {{- if $i }}, {{ end -}}
             {{- $category_page := ($.Site.GetPage "category").GetPage $value -}}
@@ -13,7 +13,8 @@
             {{- end -}}
         {{- end -}}
     {{- end -}}
-    {{- if .Params.tags }} and tagged
+    {{- if (and .Params.categories .Params.tags) }} and{{- end -}}
+    {{- if .Params.tags }} tagged
         {{ range $i, $value := .Params.tags -}}
             {{- if $i }}, {{ end -}}
             {{- $tag_page := ($.Site.GetPage "tag").GetPage $value -}}
