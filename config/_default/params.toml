@@ -10,4 +10,4 @@ Subtitle = ""
 # HeaderWidth = ""
 # HeaderHeight = ""
 
-mainSections = ["posts"]
+mainSections = ["post", "posts"]
